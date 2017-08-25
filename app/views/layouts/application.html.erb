@@ -8,6 +8,15 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
+  <h1>
+    <% if current_user %>
+    <div> <%= current_user %></div>
+    <div> <%= button_to "logout", cats_url, method: 'delete' %></div>
+    <% else %>
+      <%= button_to "login", new_session_url, method: 'get' %>
+    <% end %>
+  </h1>
+
   <body>
     <%= yield %>
   </body>
